@@ -4,7 +4,7 @@ let outC2;
 let outCH;
 let outCT;
 let outCSP; // 分隔
-let outText = ["沒有升降", "1 個 #", "2 個 #", "3 個 #", "4 個 #", "7 個 b / 5 個 #", "6 個 b / 6 個 #", "5 個 b / 7 個 #", "4 個 b", "3 個 b", "2 個 b", "1 個 b"]
+let outText = ["沒有升降", "1 个 #", "2 个 #", "3 个 #", "4 个 #", "7 个 b / 5 个 #", "6 个 b / 6 个 #", "5 个 b / 7 个 #", "4 个 b", "3 个 b", "2 个 b", "1 个 b"]
 let outTextSize = 15;
 
 let majorRatio = 0.74;
@@ -22,19 +22,18 @@ let minorText = ["Am", "Em", "Bm", "F#m", "C#m", "Abm/G#m", "Ebm/D#m", "Bbm/A#m"
 let minorTextSize = 17;
 
 let detailText1 = [
-  "C 大調 ─ A 小調",
-  "G 大調 ─ E 小調",
-  "D 大調 ─ B 小調",
-  "A 大調 ─ F# 小調",
-  "E 大調 ─ C# 小調",
-  "Cb 大調 ─ Ab 小調 / B 大調 ─ G# 小調",
-  "Gb 大調 ─ Eb 小調 / F# 大調 ─ D# 小調",
-  "Db 大調 ─ Bb 小調 / C# 大調 ─ A# 小調",
-  "Ab 大調 ─ F 小調",
-  "Eb 大調 ─ C 小調",
-  "Bb 大調 ─ G 小調",
-  "F 大調 ─ D 小調"
-]
+  "C 大调 ─ A 小调",
+  "G 大调 ─ E 小调",
+  "D 大调 ─ B 小调",
+  "A 大调 ─ F# 小调",
+  "E 大调 ─ C# 小调",
+  "Cb 大调 ─ Ab 小调 / B 大调 ─ G# 小调",
+  "Gb 大调 ─ Eb 小调 / F# 大调 ─ D# 小调",
+  "Db 大调 ─ Bb 小调 / C# 大调 ─ A# 小调",
+  "Ab 大调 ─ F 小调",
+  "Eb 大调 ─ C 小调",
+  "Bb 大调 ─ G 小调",
+  "F 大调 ─ D 小调",]
 let detailTextSize = 22;
 
 let coreRatio = 0.57;
@@ -86,19 +85,17 @@ function setup() {
   minorTextSize = width * 0.02125;
   detailTextSize = width * 0.0275;
 
-  lockButton = createButton('[已鎖定]');
+  lockButton = createButton('[已锁定]');
   lockButton.position(19, 19);
   lockButton.mousePressed(toggleLocked);
-
-
 }
 
 function toggleLocked() {
   if (locked) {
-    lockButton.html("鎖定");
+    lockButton.html("锁定");
     locked = false;
   } else {
-    lockButton.html("[已鎖定]");
+    lockButton.html("[已锁定]");
     locked = true;
   }
 }
@@ -131,7 +128,7 @@ function drawOuter(ang) {
 
 function drawOuterText(ang) {
   for (i = 0; i < 12; i++) {
-    let j = i + ang + 3.5; // 把第一個字畫到右方
+    let j = i + ang + 3.5; // 把第一个字写到右方
     push();
     rotate(TAU * (j / 12));
     textAlign(CENTER);
@@ -216,16 +213,10 @@ function drawCoreDetail(ang) {
   textAlign(CENTER);
   textSize(detailTextSize);
   text(detailText1[highlighted()], 0, height * 0.08);
-
   imageMode(CENTER);
   image(imgStaff, 0, height * -0.03, width / 2, height * 0.15);
   let sig = highlighted();
   sig = (sig > 6) ? sig - 12 : sig;
-
-  //
-
-
-  // dbText = sig;
   switch (sig) {
     case 5:
       stroke(0);
@@ -258,18 +249,13 @@ function drawCoreDetail(ang) {
       drawKeySig(sig, -0.16, 1);
       drawSigNumber((sig > 0) ? sig : 0, (sig < 0) ? sig : 0);
   }
-
-
 }
 
 function drawSigNumber(s, f) {
   // draw center one
   noStroke();
   fill(80);
-  let acci = [
-    "Fb", "Cb", "Gb", "Db", "Ab", "Eb", "Bb", "",
-    "F#", "C#", "G#", "D#", "A#", "E#", "B#"
-  ]
+  let acci = ["Fb", "Cb", "Gb", "Db", "Ab", "Eb", "Bb", "", "F#", "C#", "G#", "D#", "A#", "E#", "B#"]
   let sp = 0.024; // space
   let w = 0.02; // width
   let h = 0.004; // height
@@ -295,7 +281,7 @@ function drawSigNumber(s, f) {
   }
   textSize(width / 60);
   fill(90);
-  text(`（${-f} 個降記號 / ${s} 個升記號）`, 0, height * 0.16);
+  text(`（${-f} 个降记号 / ${s} 个升记号）`, 0, height * 0.16);
 }
 
 function drawKeySig(sig, x, y) {
@@ -341,7 +327,6 @@ function mouseAngle(ang) {
   let h = v.heading(); // -PI ~ PI
   let i = map(h, -PI, PI, 6, 18);
   mouseDir = (i > 12) ? i - 12 : i;
-
 }
 
 function rotateGlobal() {
@@ -350,7 +335,6 @@ function rotateGlobal() {
     vel += acc / 70;
     vel = constrain(vel, -0.1, 0.1);
   }
-
   if (locked) {
     vel = 0; // friction
   } else {
@@ -358,8 +342,6 @@ function rotateGlobal() {
   }
   angle += vel;
 }
-
-
 
 function draw() {
   background(95);
@@ -375,5 +357,4 @@ function draw() {
   drawMinorText(angle);
   drawCore(angle);
   debugText();
-
 }
