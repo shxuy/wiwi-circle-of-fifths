@@ -59,9 +59,9 @@ let modeLabel = ["Major/Minor", "Ionian", "Dorian", "Phrygian", "Lydian", "Mixol
 let paintingArray = new Array();
 
 function preload() {
-  imgStaff = loadImage("./staff.png");
-  imgFlat = loadImage("./flat.png");
-  imgSharp = loadImage("./sharp.png");
+  imgStaff = loadImage("./img/staff.png");
+  imgFlat = loadImage("./img/flat.png");
+  imgSharp = loadImage("./img/sharp.png");
 }
 
 function setup() {
