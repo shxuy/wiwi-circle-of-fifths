@@ -13,4 +13,4 @@ https://creativecommons.org/licenses/by-sa/4.0/
     python3 -m http.server
     ```
     
-3. 在浏览器中输入网址localhost:8080
+3. 在浏览器中输入网址localhost:8000
